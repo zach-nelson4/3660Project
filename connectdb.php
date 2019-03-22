@@ -1,6 +1,6 @@
 <?php
 function connect_sql(){
-	$conn = new mysqli("127.0.0.1", "root", " ", "dms_db");
+	$conn = new mySql_connect($username,$password,$dbname)
 	if ($conn->error){
 		die("Error: " . $conn->error);
 	}
