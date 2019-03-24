@@ -1,7 +1,11 @@
 <?php
 function connect_sql(){
-	//$conn = new mysqli("127.0.0.1", "root", " ", "cpsc3660_carsales");
-	$conn = mysql_connect("root", "", "cpsc3660_carsales");
+	$servername = "127.0.0.1";
+	$username = "root";
+	$password = "";
+	$dbname = "cpsc3660_carsales";
+	
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	if ($conn->error){
 		die("Error: " . $conn->error);
 	}
