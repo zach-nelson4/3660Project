@@ -16,13 +16,19 @@
 	$zip = mysqli_real_escape_string($conn, $_POST['phone_num']);
 	$custid = mysqli_real_escape_string($conn, $_POST['CustID']);
 
-	$sql = "INSERT INTO customer (CustID, FName, LName, StreetName, City, Province, postCode, phone)
-		VALUES('$custid', '$first_name', '$last_name', '$address', '$city', '$province', '$zip', '$phone')";
+	echo $first_name; 
+
+	$sql = "INSERT INTO customer  VALUES('$custid', '$first_name', '$last_name', '$address', '$city', '$province', '$zip', '$phone')";
+
+	echo $sql;
 
 	$retval = mysqli_query($conn, $sql);
 	
+	echo $retval;
+
+	$url = "http://localhost/3660Project/index.html";
 	if($retval){
-		header('Location: ../AddCustomer');
+		header("Location: $url");
 	exit;
 	} else {
 		echo "Error.";
@@ -30,6 +36,7 @@
 	}
 	
 	mysqli_close($conn);
+}
 	
 ?>
 	
