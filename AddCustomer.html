@@ -1,0 +1,30 @@
+<html>
+	<head> 
+		<title> Add New Customer </title>
+		<link rel="stylesheet" href="css/main-style.css">
+	</head>
+
+<body>
+
+<center><h2>Add New Customer</h2></center>
+
+<h3><u> Customer Information </u></h3> <br>
+
+<form action="addCust.php" method="post" style="overflow-x:auto;">
+	First Name: <input type="string" name="fn" required><br><br>
+	Last Name: <input type="string" name="ln" required><br><br>
+	Address: <input type="string" name="address" required><br><br>
+	City: <input type="string" name="city" required><br><br>
+	Province: <input type="string" name="province" required><br><br>
+	ZIP Code: <input type="number" name="zip_code" required><br><br>
+	Phone Number: <input type="string" name="phone_num" required><br><br>
+	Customer ID: <input type="number" name="CustID" required<br>
+
+<br><br>
+<input type="submit" name= "cust_submit">
+</form>
+<br><br>
+<input type="button" value="Return Home" onclick="window.location.href='Index.html'" />
+
+</body>
+</html>
