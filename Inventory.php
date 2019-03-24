@@ -16,36 +16,39 @@
 		<th>Interior Color</th>
 		<th>VIN #</th>
 	</tr>
-
 	<?php
 	include 'connectdb.php';
-	$conn = connect_sql();
 	
-	$sql = "SELECT *
-		FROM cars
-	$result = mysql_query($sql);
+	$conn = connect_sql();
+	$sql = "SELECT * FROM cars";
+	$retval = mysqli_query($conn, $sql);
 
-	if ($result->num_rows > 0){
-		while($row = $result->fetch_assoc()){
-			echo "<tr>"."<td>" . $row["CarID"] . "</td>" .
-			"<td>" . $row["ModName"] . "</td>" .
-			"<td>" . $row["Year"] . "</td>" .
-			"<td>" . $row["EdName"] . "</td>" .
-			"<td>" . $row["ExtCol"] . "</td>" .
-			"<td>" . $row["IntCol"] . "</td>" .
-			"<td>" . $row["VIN"] . "</td>" .
-			"</tr>";
-			}
-		} else {
-			echo "0 Results";
-		}
-		$conn->close();
-    ?>
+	if (! $retval) 
+	die ('could not get data: ' . mysqli_error($conn));
 
-</table>
+	if ( mysqli_num_rows($retval) > 0)
+	{
+    while ($row = mysqli_fetch_assoc($retval))
+    {
+		echo "<tr>"."<td>" . $row["CarID"] . "</td>" .
+		"<td>" . $row["ModName"] . "</td>" .
+		"<td>" . $row["Year"] . "</td>" .
+		"<td>" . $row["EdName"] . "</td>" .
+		"<td>" . $row["ExtCol"] . "</td>" .
+		"<td>" . $row["IntCol"] . "</td>" .
+		"<td>" . $row["VIN"] . "</td>" .
+		"</tr>";
+    }
 
-<br>
-<input type="button" value="Search Cars" onclick="window.location.href='blank.html'" />
+	}
+else {
+    echo "0 results";
+}
+
+mysqli_close($conn);
+?>
+	</table>
+
 <br><br>
 <input type="button" value="Return Home" onclick="window.location.href='Index.html'" />
 
