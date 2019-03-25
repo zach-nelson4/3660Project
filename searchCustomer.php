@@ -5,9 +5,9 @@
 	</head>	
 
 <body>
-<br><h3>Results</h3><br>
+<br><center><h3>Results</h3></center><br>
 
-<table id = "Customer Search Results">
+<table id = "tables">
 	<tr>
 		<th>Customer ID</th>
 		<th>First Name</th>
@@ -27,30 +27,38 @@
 	{
 	$first_name = $last_name = "";
 
-	$sql = "SELECT FName, LName FROM customer
-		where FName = $first_name AND Lname = $last_name";
+	$first_name = mysqli_real_escape_string($conn, $_POST['fn']);
+	$last_name = mysqli_real_escape_String($conn, $_POST['ln']);
 
-	$result = mysqli_query($sql);
+	$sql = "SELECT * FROM customer WHERE (fName = '$first_name')
+			AND (lName = '$last_name')";		
 
+	$result = mysqli_query($conn, $sql);
 
-	if($result->num_rows > 0){
-		while($row = $result->fetch_assoc()){
-			echo "<tr>"."<td>" . $row["CustID"] . </td>" .
-			"<td>" . $row["FName"] . "</td>" .
-			"<td>" . $row["LName"] . "</td>" .		
-			"<td>" . $row["StreetName"] . "</td>" .
-			"<td>" . $row["City"] . "</td>" .
-			"<td>" . $row["Province"] . "</td>" .
+	if (! $result) 
+	die ('could not get data: ' . mysqli_error($conn));
+
+	if( mysqli_num_rows($result) > 0){
+		while($row = mysqli_fetch_assoc($result))
+		{
+			echo "<tr>"."<td>" . $row["custID"] . "</td>" .
+			"<td>" . $row["fName"] . "</td>" .
+			"<td>" . $row["lName"] . "</td>" .		
+			"<td>" . $row["streetName"] . "</td>" .
+			"<td>" . $row["city"] . "</td>" .
+			"<td>" . $row["province"] . "</td>" .
 			"<td>" . $row["postCode"] . "</td>" .
 			"<td>" . $row["phone"] . "</td>" .
-			"</tr">;
-			}
-		} else {
+			"</tr>";
+		}
+	 } else {
 			echo "0 Results";
 		}
-
+	}
 		mysqli_close($conn);
+
 ?>
+</table>
 
 <br><br>
 <input type="button" value="Return Home" onclick="window.location.href='Index.html'" />
