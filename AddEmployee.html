@@ -1,0 +1,28 @@
+<html>
+	<head> 
+		<title> Add New Employee </title>
+		<link rel="stylesheet" href="css/main-style.css">
+	</head>
+
+<body>
+
+<center><h2>Add New Employee</h2></center>
+
+<h3><u> Employee Information </u></h3> <br>
+
+<form action="addEmp.php" method="post" style="overflow-x:auto;">
+	First Name: <input type="string" name="fn" ><br><br>
+	Last Name: <input type="string" name="ln" ><br><br>
+	Phone Number: <input type="string" name="phone_num" ><br><br>
+	Sales ID: <input type="string" name="sales_id" ><br><br>
+	Employee ID: <input type="string" name="emp_id" ><br><br>
+	Commission %: <input type="number" name="commission" ><br><br>
+
+<br><br>
+<input type="submit" name= "emp_submit">
+</form>
+<br><br>
+<input type="button" value="Return Home" onclick="window.location.href='Index.html'" />
+
+</body>
+</html>
