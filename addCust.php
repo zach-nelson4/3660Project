@@ -16,17 +16,11 @@
 	$phone = mysqli_real_escape_string($conn, $_POST['phone_num']);
 	$custid = mysqli_real_escape_string($conn, $_POST['CustID']);
 
-	echo $city; 
-
 	$sql = "INSERT INTO customer  VALUES('$custid', '$first_name', '$last_name', '$address', '$city', '$province', '$zip', '$phone')";
 
-	echo $sql;
-
 	$retval = mysqli_query($conn, $sql);
-	
-	echo $retval;
 
-	$url = "http://localhost/3660Project/index.html";
+	$url = "http://localhost/3660Project/Index.html";
 	if($retval){
 		header("Location: $url");
 	exit;

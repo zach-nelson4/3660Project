@@ -7,7 +7,25 @@
 </head>
 
 <body>
-<center> <h2> New Car Purchase </h2> </center>
+<center> <h2> New Car Purchase </h2> </center> <br>
+
+<h3><u> Vehicle Information </u></h3> <br>
+
+<form action = "newCarP.php" method = "post" style= "overflow-x:auto;">
+CarID: <input type = "number" name = "CarID" required<br><br>
+Model: <input type = "string" name = "ModName" > <br><br>
+Edition: <input type = "string" name = "EdName" > <br><br>
+Year: <input type = "number" name = "Year" > <br><br>
+Interior Colour: <input type = "string" name = "IntCol" > <br><br>
+Exterior Colour: <input type = "string" name = "ExtCol" > <br><br>
+VIN: <input type = "string" name = "VIN" > <br>
+
+<br><br>
+<input type = "submit" name = "new_car_submit">
+</form>
+
+<br><br>
+<input type = "button" value = "Return Home" onclick= "window.location.href ='Index.html'" />
 
 </body>
 
