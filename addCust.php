@@ -15,8 +15,9 @@
 	$zip = mysqli_real_escape_string($conn, $_POST['zip_code']);
 	$phone = mysqli_real_escape_string($conn, $_POST['phone_num']);
 	$custid = mysqli_real_escape_string($conn, $_POST['CustID']);
+	$dob = mysqli_real_escape_string($conn, $_POST['dob']);
 
-	$sql = "INSERT INTO customer  VALUES('$custid', '$first_name', '$last_name', '$address', '$city', '$province', '$zip', '$phone')";
+	$sql = "INSERT INTO customer  VALUES('$custid', '$first_name', '$last_name', '$dob', '$address', '$city', '$province', '$zip', '$phone')";
 
 	$retval = mysqli_query($conn, $sql);
 
