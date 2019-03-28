@@ -15,6 +15,7 @@
 		<th>Exterior Color</th>
 		<th>Interior Color</th>
 		<th>VIN #</th>
+		<th>New/Used</th>
 	</tr>
 	<?php
 	include 'connectdb.php';
@@ -37,6 +38,7 @@
 		"<td>" . $row["ExtCol"] . "</td>" .
 		"<td>" . $row["IntCol"] . "</td>" .
 		"<td>" . $row["VIN"] . "</td>" .
+		"<td>" . $row["New/Used"] . "</td>" .
 		"</tr>";
     }
 

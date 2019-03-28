@@ -10,12 +10,11 @@
 	$first_name = mysqli_real_escape_string($conn, $_POST['fn']);
 	$last_name = mysqli_real_escape_string($conn, $_POST['ln']);
 	$phone = mysqli_real_escape_string($conn, $_POST['phone_num']);
-	$salesID = mysqli_real_escape_string($conn, $_POST['sales_id']);
 	$empID = mysqli_real_escape_string($conn, $_POST['emp_id']);
 	$commis = mysqli_real_escape_string($conn, $_POST['commission']);
 
 
-	$sql = "INSERT INTO employee VALUES('$empID', '$first_name', '$last_name', '$phone', '$salesID', '$commis')";
+	$sql = "INSERT INTO employee VALUES('$empID', '$first_name', '$last_name', '$phone', '$commis')";
 
 	echo $sql;
 
