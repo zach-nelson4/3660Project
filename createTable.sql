@@ -1,6 +1,6 @@
 create table cars
 (
-    CarID int,
+    CarID int not null auto_increment,
     New_or_Used varchar(5),
     ModName varchar(10),
     EdName char(2),
@@ -11,10 +11,9 @@ create table cars
     primary key (CarID)
 );
 
-
 create table customer
 (
-    CustID int,
+    CustID int not null auto_increment,
     fName varchar(15),
     lName varchar(20),
     streetName varchar(30),
@@ -22,6 +21,8 @@ create table customer
     province varchar(20),
     postCode char(7),
     phone char(14),
+	DOB date,
+	gender char(1),
 	SalesTransID int,
     primary key (custID),
 	foreign key (SalesTransID) REFERENCES salestrans(SalesTransID)
@@ -29,11 +30,11 @@ create table customer
 
 create table oldcarpurchase
 (
-	OldCarPurchID int,
+	OldCarPurchID int not null auto_increment,
 	CarID int,
 	BookP float(2),
 	PricePaid float(2),
-	MilesUsed float(2),
+	MilesUsed int,
 	Seller_or_DealerName varchar(20),
 	Locations varchar(20),
 	primary key (OldCarPurchID),
@@ -42,10 +43,10 @@ create table oldcarpurchase
 
 create table newcarpurchase
 (
-	NewCarPurchID int,
+	NewCarPurchID int not null auto_increment,
 	CarID int,
 	PurchP float(2),
-	ExpMiles float(2),
+	ExpMiles int,
 	primary key (NewCarPurchID),
 	foreign key (CarID) REFERENCES cars(CarID)
 );
@@ -56,29 +57,29 @@ create table repair
 	EstCost float(2),
 	ActualCost float(2),
 	Problem varchar(50),
-	RepairID int,
+	RepairID int not null auto_increment,
 	primary key (RepairID),
 	foreign key (CarID) REFERENCES cars(CarID)
 );
 
-
 create table salestrans
 (
-	SalesTransID int,
+	SalesTransID int not null auto_increment,
 	CarID int,
 	SellingP float(2),
 	DownPmt float(2),
 	FinancedAmt float(2),
 	InterestRate float(2),
+	transDate date,
 	primary key (SalesTransID),
 	foreign key (CarID) REFERENCES car(CarID)
 );
 
 create table employee
 (
-	EmpID int,
-	fName char(20),
-	lName char(20),
+	EmpID int not null auto_increment,
+	fName varchar(20),
+	lName varchar(20),
 	Phone char(14),
 	Commission float(2),
 	SalesTransID int,
@@ -96,7 +97,7 @@ create table warranty
 	Duration varchar(40),
 	TotalCost float(2),
 	MonthlyCost float(2),
-	WarrID int,
+	WarrID int not null auto_increment,
 	primary key (WarrID),
 	foreign key (SalesTransID) REFERENCES salestrans(SalesTransID)
 );
@@ -105,12 +106,12 @@ create table employerhist
 (
 	CustID int,
 	EmployerName varchar(20),
-	Title char(10),
+	Title varchar(10),
 	Supervisor varchar(20),
 	Phone char(14),
 	Home_Address varchar(50),
 	StartDate date,
-	EmpHistID int,
+	EmpHistID int not null auto_increment,
 	primary key (EmpHistID),
 	foreign key (CustID) REFERENCES customer(CustID)
 );
@@ -121,12 +122,13 @@ create table payment
 	NoPmt int,
 	Amount float(2),
 	StartDate date,
-	DueDate char(7),
+	DueDate date,
 	NoDaysLate float(2),
 	AvgDaysLate float(2),
 	BankAcct int,
-	Cosigner char(20),
-	PmtID int,
+	Cosigner varchar(30),
+	PmtID int not null auto_increment,
+	primary key (PmtID),
 	foreign key (CustID) REFERENCES customer(CustID)
 );
 	
