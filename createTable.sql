@@ -14,7 +14,7 @@ create table cars
 
 create table customer
 (
-    custID int,
+    CustID int,
     fName varchar(15),
     lName varchar(20),
     streetName varchar(30),
@@ -22,7 +22,9 @@ create table customer
     province varchar(20),
     postCode char(7),
     phone char(14),
-    primary key (custID)
+	SalesTransID int,
+    primary key (custID),
+	foreign key (SalesTransID) REFERENCES salestrans(SalesTransID)
 );
 
 create table oldcarpurchase
@@ -95,7 +97,8 @@ create table warranty
 	TotalCost float(2),
 	MonthlyCost float(2),
 	WarrID int,
-	primary key (SalesTransID)
+	primary key (WarrID),
+	foreign key (SalesTransID) REFERENCES salestrans(SalesTransID)
 );
 
 create table employerhist 
@@ -108,7 +111,8 @@ create table employerhist
 	Home_Address varchar(50),
 	StartDate date,
 	EmpHistID int,
-	primary key (CustID)
+	primary key (EmpHistID),
+	foreign key (CustID) REFERENCES customer(CustID)
 );
 
 create table payment
@@ -123,7 +127,7 @@ create table payment
 	BankAcct int,
 	Cosigner char(20),
 	PmtID int,
-	primary key (CustID)
+	foreign key (CustID) REFERENCES customer(CustID)
 );
 	
 
