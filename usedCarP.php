@@ -2,13 +2,14 @@
     include 'connectdb.php';
     $conn = connect_sql();
 
-    if(isset($_POST['new_car_submit']))
+    if(isset($_POST['used_car_submit']))
     {
         $model = $edition = $interior_colour = $exterior_colour = $VIN = "";
         $year = 0;
 
-        $purchPrice = 0.0;
-        $ExpMile = 0;
+        $BookPrice = $PricePaid = 0.0;
+        $mileage = 0;
+        $SellerName = $location = "";
 
         $model = mysqli_real_escape_string($conn, $_POST['ModName']);
         $edition = mysqli_real_escape_string($conn, $_POST['EdName']);
@@ -16,15 +17,18 @@
         $exterior_colour = mysqli_real_escape_string($conn, $_POST['ExtCol']);
         $VIN = mysqli_real_escape_string($conn, $_POST['VIN']);
         $year = mysqli_real_escape_string($conn, $_POST['Year']);
-        
-        $sql = "INSERT INTO cars  VALUES(NULL, 'NEW', '$model', '$edition', '$year', '$interior_colour', '$exterior_colour', '$VIN')";
 
+        $sql = "INSERT INTO cars VALUES(NULL, 'USED', '$model', '$edition', '$year', '$interior_colour', '$exterior_colour', '$VIN')"; 
+        
         $retval = mysqli_query($conn, $sql);
 
-        $purchPrice = mysqli_real_escape_string($conn, $_POST['purchPrice']);
-        $ExpMile = mysqli_real_escape_string($conn, $_POST['ExpMiles']);
+        $BookPrice = mysqli_real_escape_string($conn, $_POST['BookPrice']);
+        $PricePaid = mysqli_real_escape_string($conn, $_POST['PricePaid']);
+        $mileage = mysqli_real_escape_string($conn, $_POST['mileage']);
+        $SellerName = mysqli_real_escape_string($conn, $_POST['sellerName']);
+        $location = mysqli_real_escape_string($conn, $_POST['location']);
 
-        $sql1= "INSERT INTO newcarpurchase VALUES(NULL, (select max(carID) from cars), '$purchPrice', '$ExpMile')";
+        $sql1 = "INSERT INTO oldcarpurchase VALUES(NULL, (select max(carID) from cars), '$BookPrice', '$PricePaid', '$mileage', '$SellerName', '$location')";
 
         $retval1 = mysqli_query($conn, $sql1);
 
@@ -37,7 +41,7 @@
             echo "Error.";
             die();
         }
-
+        
         mysqli_close($conn);
     }
 ?>

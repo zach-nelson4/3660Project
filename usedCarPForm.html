@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>
+            Used Car Purchase Form
+        </title>
+        <link rel="stylesheet" href="css/main-style.css">
+    </head>
+
+    <body>
+    <center> <h2> Used Car Purchase </h2></center> <br>
+    
+    <h3><u> Vehicle Information </u></h3> <br>
+    
+    <form action = "usedCarP.php" method = "post" style = "overflow-x:auto;">
+    Model: <input type = "string" name = "ModName"> <br><br>
+    Edition: <input type = "string" name = "EdName"> <br><br>
+    Year: <input type = "number" name = "Year"> <br><br>
+    Interior Colour: <input type = "string" name = "IntCol"> <br><br>
+    Exterior Colour: <input type = "string" name = "ExtCol"> <br><br>
+    VIN: <input type = "string" name = "VIN"> <br><br>
+    Book Price: <input type = "number" name = "BookPrice" step = 0.1> <br><br>
+    Price Paid: <input type = "number" name = "PricePaid" step = 0.1> <br><br>
+    Mileage: <input type = "number" name = "mileage"> <br><br>
+    Seller Name: <input type = "string" name = "sellerName"> <br><br>
+    Location: <input type = "string" name = "location"> <br><br>
+
+    <br><br>
+    <input type = "submit" name = "used_car_submit">
+    </form>
+
+    <br><br>
+    <input type = "button" value = "Return Home" onclick = "window.location.href = 'Index.html'" />
+
+    </body>
+
+</html>
