@@ -7,13 +7,14 @@
 <body>
 <center><h2>Search Customers</h2></center>
 <br><br>
-Please enter the customer's first and last name: <br><br>
+Please enter the search information into one or more of the categories below: <br><br>
 <form action="searchCustomer.php" method="post" style="overflow-x:auto;">
-	First Name: <input type="string" name="fn" required>
-	  Last Name: <input type="string" name="ln" required><br><br>
+Customer ID: <input type="number" name="CustID"> <br><br>
+First Name: <input type="string" name="fn"> <br><br>
+Last Name: <input type="string" name="ln"><br><br>
 
 <br><br>
-<input type="submit" name= "search_submit">
+<input type="submit" name= "customer_search_submit">
 </form>
 <br>
 <input type="button" value="Return Home" onclick="window.location.href='Index.html'" />

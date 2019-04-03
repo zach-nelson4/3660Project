@@ -19,7 +19,7 @@
     include 'connectdb.php';
     $conn = connect_sql();
 
-    if (isset($_POST['hello']))
+    if (isset($_POST['employee_search_submit']))
     {
         $empID = 0;
         $first_name = $last_name = "";

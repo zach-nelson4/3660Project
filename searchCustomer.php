@@ -23,15 +23,17 @@
 	include 'connectdb.php';
 	$conn = connect_sql();
 
-	if (isset($_POST['search_submit']))
+	if (isset($_POST['customer_search_submit']))
 	{
 	$first_name = $last_name = "";
+	$cust_id = 0;
 
+	$cust_id = mysqli_real_escape_string($conn, $_POST['CustID']);
 	$first_name = mysqli_real_escape_string($conn, $_POST['fn']);
-	$last_name = mysqli_real_escape_String($conn, $_POST['ln']);
+	$last_name = mysqli_real_escape_string($conn, $_POST['ln']);
 
-	$sql = "SELECT * FROM customer WHERE (fName = '$first_name')
-			AND (lName = '$last_name')";		
+	$sql = "SELECT * FROM customer WHERE((CustID = '$cust_id') OR (fName = '$first_name')
+			OR (lName = '$last_name'))";		
 
 	$result = mysqli_query($conn, $sql);
 
