@@ -4,23 +4,23 @@
 
 	if (isset($_POST['cust_submit']))
 	{
-	$first_name = $last_name = $address = $city = $province = $phone = $zip = "";
-	$custid = 0;
-
-	$first_name = mysqli_real_escape_string($conn, $_POST['fn']);
-	$last_name = mysqli_real_escape_string($conn, $_POST['ln']);
-	$address = mysqli_real_escape_string($conn, $_POST['address']);
+	$first_name = $last_name = $address = $city = $province = $phone = $zip = $dob = "";
+	$gender = '';
+	
+	$first_name = mysqli_real_escape_string($conn, $_POST['fName']);
+	$last_name = mysqli_real_escape_string($conn, $_POST['lName']);
+	$address = mysqli_real_escape_string($conn, $_POST['streetName']);
 	$city = mysqli_real_escape_string($conn, $_POST['city']);
 	$province = mysqli_real_escape_string($conn, $_POST['province']);
-	$zip = mysqli_real_escape_string($conn, $_POST['zip_code']);
-	$phone = mysqli_real_escape_string($conn, $_POST['phone_num']);
-	$custid = mysqli_real_escape_string($conn, $_POST['CustID']);
+	$zip = mysqli_real_escape_string($conn, $_POST['postCode']);
+	$phone = mysqli_real_escape_string($conn, $_POST['phone']);
 	$dob = mysqli_real_escape_string($conn, $_POST['dob']);
-
-	$sql = "INSERT INTO customer  VALUES('$custid', '$first_name', '$last_name', '$dob', '$address', '$city', '$province', '$zip', '$phone')";
+	$gender = mysqli_real_escape_string($conn, $_POST['gender']);
+	
+	$sql = "INSERT INTO customer VALUES(NULL, '$first_name', '$last_name', '$address', '$city', '$province', '$zip', '$phone', '$dob', '$gender')";
 
 	$retval = mysqli_query($conn, $sql);
-
+	
 	$url = "http://localhost/3660Project/Index.html";
 	if($retval){
 		header("Location: $url");

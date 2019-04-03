@@ -14,7 +14,7 @@
 	$commis = mysqli_real_escape_string($conn, $_POST['commission']);
 
 
-	$sql = "INSERT INTO employee VALUES('$empID', '$first_name', '$last_name', '$phone', '$commis')";
+	$sql = "INSERT INTO employee VALUES(NULL, '$first_name', '$last_name', '$phone', '$commis')";
 
 	echo $sql;
 
@@ -22,7 +22,7 @@
 	
 	echo $retval;
 
-	$url = "http://localhost/3660Project/index.html";
+	$url = "http://localhost/3660Project/Index.html";
 	if($retval){
 		header("Location: $url");
 	exit;

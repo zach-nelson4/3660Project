@@ -1,3 +1,4 @@
+/*
 create table cars
 (
     CarID int not null auto_increment,
@@ -10,6 +11,7 @@ create table cars
     VIN varchar(17),
     primary key (CarID)
 );
+*/
 
 create table customer
 (
@@ -21,13 +23,12 @@ create table customer
     province varchar(20),
     postCode char(7),
     phone char(14),
-	DOB date,
+	DOB char(10),
 	gender char(1),
-	SalesTransID int,
-    primary key (custID),
-	foreign key (SalesTransID) REFERENCES salestrans(SalesTransID)
+	primary key (custID)
 );
 
+/*
 create table oldcarpurchase
 (
 	OldCarPurchID int not null auto_increment,
@@ -109,7 +110,7 @@ create table employerhist
 	Title varchar(10),
 	Supervisor varchar(20),
 	Phone char(14),
-	Home_Address varchar(50),
+	Business_Address varchar(50),
 	StartDate date,
 	EmpHistID int not null auto_increment,
 	primary key (EmpHistID),
@@ -119,7 +120,7 @@ create table employerhist
 create table payment
 (
 	CustID int,
-	NoPmt int,
+	NumPmt int,
 	Amount float(2),
 	StartDate date,
 	DueDate date,
@@ -131,7 +132,7 @@ create table payment
 	primary key (PmtID),
 	foreign key (CustID) REFERENCES customer(CustID)
 );
-	
+*/	
 
 
 
