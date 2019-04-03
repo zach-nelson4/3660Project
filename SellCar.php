@@ -1,70 +1,45 @@
 <?php
 	include 'connectdb.php';
 	$conn = connect_sql();
+
 ?>
 
 <html>
+	<head>
+		<title>Sell Car</title>
+	</head>
 
+<body>
 <center><h2>Sell Car</h2></center>
 <br>
-<h2>
 <p>Purchase Date: <input type="date" name="date_sold" required></p>
 
-	<?php
-		$sql = "SELECT carID FROM cars";
-		$results = mysqli_query($conn, $sql);
-		echo "Car ID <select name='CarID' onchange= \"showCarInfo(this.value)\" required>";
-		echo "<option value=''>Select Car</option>";
-		while($row = mysqli_fetch_assoc($results))
-		{
-			echo "<option value=" .$row['CarID'] . ">" . $row ['CarID'] . "</option>";
-		}
-		echo "</select>";
-		?>
+<form action="carSellingConfirm.php" method="post" style="overflow-x:auto;">
+<?php
+	$sql = "SELECT CarID
+		FROM CARS";
+	$results = mysqli_query($conn, $sql);	
+	echo "Car ID To Sell: <select name='CarID' onchange= \"showCarInfo(this.value)\" required>";
+	echo "<option value=''>Select Car</option>;
 
-<p>Total Due: <input type="number" name="total_due" required>  
-Tax: Variable that changes here
-<p>Down Payment: <input type="number" name="down_pay" required>
-Finance Amount: <input type="number" name="Fin_Amt" required></p>
+	while($row = $results->fetch_assoc())
+	{
+		echo "<option value=" .$row['CarID'] . ">" . $row ['CarID'] . "</option>";
+	}
+	echo "</select>";<br>
 
-<br>
-<h2> Employee Info </h2> <br>
-	<?php
-		$sql = "SELECT EmpID, FN, LN
-			FROM EMPLOYEE";
-		$results = $conn->query($sql);
-		echo "Employee ID <select name='EmpID' onchange= \"showEmployeeInfo(this.value)\" required>";
-		echo "<option value=''>Select Employee</option>";
-		while($row = $results->fetch_assoc())
-		{
-			echo "<option value=" .$row['EmpID'] . ">" . $row ['EmpID'] . "</option>";
-		}
-		echo "</select>";
-		?>
-	<br>
-	Comission Percentage (%): <input type='number' name="employee_commission" required>
+?>
+
+	Selling Price: <input type="number" name ="SellingP" ><br>
+	Down Payment: <input type="number" name ="DownP"><br>
+	Financed Amount: <input type="number" name="FinancedAmt"><br>
+	Interest Rate: <input type="number" name="IntRate"><br>
+	
 
 <br>
-<h2> Customer Info </h2> <br>
+<input type="submit" name="sellCar_submit">
+</form>
 
-	<?php
-		$sql = "SELECT CustID, FN, LN
-			FROM CUSTOMER";
-		$results = $conn->query($sql);
-		echo "Customer ID <select name='CustID' onchange= \"showCustomerInfo(this.value)\" required>";
-		echo "<option value=''>Select Customer</option>";
-		while($row = $results->fetch_assoc())
-		{
-			echo "<option value=" .$row['CustID'] . ">" . $row ['CustID'] . "</option>";
-		}
-		echo "</select>";
-		?>
-
-	<br>
-	New Customer? <a href="addCustomer.html">Click Here</a>
-
-<br>
-<input type="submit" name="sale_submit">
 <br><br>
 <input type="button" value="Return Home" onclick="window.location.href='Index.html'" />
 </html>
