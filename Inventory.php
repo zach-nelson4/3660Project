@@ -38,7 +38,7 @@
 		"<td>" . $row["ExtCol"] . "</td>" .
 		"<td>" . $row["IntCol"] . "</td>" .
 		"<td>" . $row["VIN"] . "</td>" .
-		"<td>" . $row["New/Used"] . "</td>" .
+		"<td>" . $row["New_or_Used"] . "</td>" .
 		"</tr>";
     }
 
