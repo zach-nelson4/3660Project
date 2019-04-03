@@ -10,12 +10,7 @@
 	$first_name = mysqli_real_escape_string($conn, $_POST['fn']);
 	$last_name = mysqli_real_escape_string($conn, $_POST['ln']);
 	$phone = mysqli_real_escape_string($conn, $_POST['phone_num']);
-	$commis = mysqli_real_escape_string($conn, $_POST['commission']);
-
-	if ($commis == "")
-	$sql = "INSERT INTO employee VALUES(NULL, '$first_name', '$last_name', '$phone', NULL)";
-
-	else
+	
 	$sql = "INSERT INTO employee VALUES(NULL, '$first_name', '$last_name', '$phone', '$commis')";
 
 	$retval = mysqli_query($conn, $sql);
