@@ -4,24 +4,22 @@
 
 	if (isset($_POST['emp_submit']))
 	{
-	$first_name = $last_name = $phone = $salesID = $empID = "";
-	$commis = 0;
+	$first_name = $last_name = $phone = "";
+	$commis = 0.0;
 
 	$first_name = mysqli_real_escape_string($conn, $_POST['fn']);
 	$last_name = mysqli_real_escape_string($conn, $_POST['ln']);
 	$phone = mysqli_real_escape_string($conn, $_POST['phone_num']);
-	$empID = mysqli_real_escape_string($conn, $_POST['emp_id']);
 	$commis = mysqli_real_escape_string($conn, $_POST['commission']);
 
+	if ($commis == "")
+	$sql = "INSERT INTO employee VALUES(NULL, '$first_name', '$last_name', '$phone', NULL)";
 
+	else
 	$sql = "INSERT INTO employee VALUES(NULL, '$first_name', '$last_name', '$phone', '$commis')";
-
-	echo $sql;
 
 	$retval = mysqli_query($conn, $sql);
 	
-	echo $retval;
-
 	$url = "http://localhost/3660Project/Index.html";
 	if($retval){
 		header("Location: $url");
@@ -33,6 +31,5 @@
 	
 	mysqli_close($conn);
 }
-	
 ?>
 	

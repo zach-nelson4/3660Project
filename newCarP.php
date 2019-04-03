@@ -5,7 +5,11 @@
     if(isset($_POST['new_car_submit']))
     {
         $model = $edition = $interior_colour = $exterior_colour = $VIN = "";
-        $CarID = $year = 0;
+        $year = 0;
+
+        $CarID = 0;
+        $purchPrice = 0.0;
+        $ExpMile = 0;
 
         $model = mysqli_real_escape_string($conn, $_POST['ModName']);
         $edition = mysqli_real_escape_string($conn, $_POST['EdName']);
@@ -13,15 +17,25 @@
         $exterior_colour = mysqli_real_escape_string($conn, $_POST['ExtCol']);
         $VIN = mysqli_real_escape_string($conn, $_POST['VIN']);
         $year = mysqli_real_escape_string($conn, $_POST['Year']);
-        $CarID = mysqli_real_escape_string($conn, $_POST['CarID']);
+        
+        $sql = "INSERT INTO cars  VALUES(NULL, 'NEW', '$model', '$edition', '$year', '$interior_colour', '$exterior_colour', '$VIN')";
 
-        $sql = "INSERT INTO cars  VALUES('$CarID', 'NEW, '$model', '$edition', '$year', '$interior_colour', '$exterior_colour', '$VIN')";
+        echo $sql;
 
         $retval = mysqli_query($conn, $sql);
 
+        $purchPrice = mysqli_real_escape_string($conn, $_POST['purchPrice']);
+        $ExpMile = mysqli_real_escape_string($conn, $_POST['ExpMiles']);
+
+        $sql1= "INSERT INTO newcarpurchase VALUES(NULL, (select max(carID) from cars), '$purchPrice', '$ExpMile')";
+
+        echo $sql1;
+
+        $retval1 = mysqli_query($conn, $sql1);
+
         $url = "http://localhost/3660Project/Index.html";
 
-        if($retval) {
+        if($retval1) {
             header("Location: $url");
             exit;
         } else {

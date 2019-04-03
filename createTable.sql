@@ -11,7 +11,7 @@ create table cars
     VIN varchar(17),
     primary key (CarID)
 );
-*/
+
 
 create table customer
 (
@@ -28,7 +28,7 @@ create table customer
 	primary key (custID)
 );
 
-/*
+
 create table oldcarpurchase
 (
 	OldCarPurchID int not null auto_increment,
@@ -75,7 +75,7 @@ create table salestrans
 	primary key (SalesTransID),
 	foreign key (CarID) REFERENCES car(CarID)
 );
-
+*/
 create table employee
 (
 	EmpID int not null auto_increment,
@@ -83,11 +83,10 @@ create table employee
 	lName varchar(20),
 	Phone char(14),
 	Commission float(2),
-	SalesTransID int,
-	primary key (EmpID),
-	foreign key (SalesTransID) REFERENCES salestrans(SalesTransID)
+	primary key (EmpID)
 );
 
+/*
 create table warranty
 (
 	SalesTransID int,
