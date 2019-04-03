@@ -15,12 +15,11 @@
                 <th> Phone Number </th>
                 <th> Commission </th>
             </tr>
-
 <?php
     include 'connectdb.php';
     $conn = connect_sql();
 
-    if(isset($_POST['search_submit']))
+    if (isset($_POST['hello']))
     {
         $empID = 0;
         $first_name = $last_name = "";
@@ -29,8 +28,8 @@
         $first_name = mysqli_real_escape_string($conn, $_POST['fName']);
         $last_name = mysqli_real_escape_string($conn, $_POST['lName']);
 
-        $sql = "SELECT * FROM employee WHERE (EmpID = '$empID') AND (fName = '$first_name')
-                AND (lName = '$last_name')";
+        $sql = "SELECT * FROM employee WHERE ((EmpID = '$empID') OR (fName = '$first_name')
+                OR (lName = '$last_name'))";
 
         $result = mysqli_query($conn, $sql);
 
@@ -43,8 +42,8 @@
                 echo "<tr>"."<td>" . $row["EmpID"]. "</td>". 
                 "<td>" . $row["fName"] . "</td>" . 
                 "<td>" . $row["lName"] . "</td>" . 
-                "<td>" . $row["phone"] . "</td>" . 
-                "<td>" . $row["commission"] . "</td" . 
+                "<td>" . $row["Phone"] . "</td>" . 
+                "<td>" . $row["Commission"] . "</td" . 
                 "</tr>";
             }
         } else {
