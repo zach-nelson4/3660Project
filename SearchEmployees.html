@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title> Search Employees </title>
+        <link rel="stylesheet" href="css/main-style.css">
+    </head>
+
+    <body>
+    <center><h2> Search Employees </h2></center>
+    <br><br>  
+    Please enter the search information into one or more of the categories below: <br><br>
+    <form action = "searchEmployees.php" methods = "post" style = "overflow-x:auto;">
+    Employee ID: <input type = "number" name= "empID"> <br><br>
+    First Name: <input type = "string" name = "fName"><br><br>
+    Last Name: <input type = "string" name = "lName"> <br><br>
+
+    <br><br>
+    <input type = "submit" name = "search_submit">
+    </form>
+
+    <br>
+    <input type = "button" value = "Return Home" onclick = "window.location.href ='Index.html'"/>
+   
+    </body>
+
+</html>
