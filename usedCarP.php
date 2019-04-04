@@ -32,7 +32,7 @@
 
         $retval1 = mysqli_query($conn, $sql1);
 
-        $url = "http://localhost/3660Project/Index.html";
+        $url = "http://localhost/3660Project/Repairs.html";
 
         if($retval1) {
             header("Location: $url");
