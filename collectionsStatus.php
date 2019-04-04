@@ -17,7 +17,7 @@
 	$CarID = mysqli_real_escape_string($conn, $_POST['carID']);
 	$CustID = mysqli_real_escape_string($conn, $_POST['CustID']);
 
-	$sql = "SELECT MAX(AvgDaysLate) FROM payment WHERE (SalesTransID = '$SalesTransID')"
+	$sql = "SELECT MAX(AvgDaysLate) AS lateDays FROM payment WHERE (SalesTransID = '$SalesTransID')"
 	while($row = $retval->fetch_assoc()){
 		$avgDaysLate = $row['lateDays'];
 	}
