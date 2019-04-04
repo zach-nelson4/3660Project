@@ -33,8 +33,8 @@
 	$last_name = mysqli_real_escape_string($conn, $_POST['ln']);
 
 	$sql = "SELECT * FROM customer WHERE((CustID = '$cust_id') OR (fName = '$first_name')
-			OR (lName = '$last_name'))";		
-
+			OR (lName = '$last_name'))";	
+			
 	$result = mysqli_query($conn, $sql);
 
 	if (! $result) 
