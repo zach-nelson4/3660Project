@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title> Search Car Inventory </title>
+        <link rel="stylesheet" href="css/main-style.css">
+    </head>
+
+    <body>
+    <center><h2> Search Car Inventory </h2></center>
+    <br><br>
+    Please enter the search information into one or more of the categories below: <br><br>
+    <form action="searchCar.php" method="post" style="overflow-x:auto;">
+        CarID: <input type="number" name="CarID"> <br><br>
+        Model: <input type="string" name="model"> <br><br>
+        Edition: <input type="string" name="edition"> <br><br>
+        Year: <input type="number" name="year"> <br><br>
+        Exterior Colour: <input type="string" name="ExtCol"> <br><br>
+        Interior Colour: <input type="string" name="IntCol"> <br><br>
+
+    <br><br>
+    <input type="submit" name="car_search_submit">
+    </form>
+
+    <br>
+    <input type="button" value="Return Home" onclick="window.location.href='Index.html'"/>
+
+    </body>
+
+</html>
