@@ -21,10 +21,10 @@
 
         $retval = mysqli_query($conn, $sql);
 
-        $purchPrice = mysqli_real_escape_string($conn, $_POST['purchPrice']);
+        $MSRP = mysqli_real_escape_string($conn, $_POST['purchPrice']);
         $ExpMile = mysqli_real_escape_string($conn, $_POST['ExpMiles']);
 
-        $sql1= "INSERT INTO newcarpurchase VALUES(NULL, (select max(carID) from cars), '$purchPrice', '$ExpMile')";
+        $sql1= "INSERT INTO newcarpurchase VALUES(NULL, (select max(carID) from cars), '$MSRP', '$ExpMile')";
 
         $retval1 = mysqli_query($conn, $sql1);
 
