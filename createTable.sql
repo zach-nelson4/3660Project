@@ -1,4 +1,4 @@
-/*
+
 create table cars
 (
     CarID int not null auto_increment,
@@ -75,7 +75,7 @@ create table salestrans
 	primary key (SalesTransID),
 	foreign key (CarID) REFERENCES car(CarID)
 );
-*/
+
 create table employee
 (
 	EmpID int not null auto_increment,
@@ -86,7 +86,7 @@ create table employee
 	primary key (EmpID)
 );
 
-/*
+
 create table warranty
 (
 	SalesTransID int,
@@ -118,6 +118,7 @@ create table employerhist
 
 create table payment
 (
+	SalesTransID int,
 	CustID int,
 	NumPmt int,
 	Amount float(2),
@@ -129,9 +130,10 @@ create table payment
 	Cosigner varchar(30),
 	PmtID int not null auto_increment,
 	primary key (PmtID),
-	foreign key (CustID) REFERENCES customer(CustID)
+	foreign key (CustID) REFERENCES customer(CustID),
+	foreign key (SalesTransID) REFERENCES salestrans(SalesTransID)
 );
-*/	
+
 
 
 

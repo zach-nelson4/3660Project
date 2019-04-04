@@ -36,8 +36,40 @@ Date Sold: <input type="date" name ="dateSold" ><br>
 	<br><br>
 	Selling Price: <input type="number" name ="SellingP" ><br>
 	Down Payment: <input type="number" name ="DownP"><br>
-	Financed Amount: <input type="number" name="FinancedAmt"><br>
-	Interest Rate: <input type="number" name="IntRate"><br>
+	Interest Rate: <input type="number" name="IntRate"><br><br>
+	<h3>Warranty Information:</h3>
+	Warranty Chosen <select name='Warranty' onchange = \"showWarrantyInfo(this.value)\ recquired>";
+	<option value="Exterior">Exterior</option>
+	<option value="Drive-Train">Drive-Train</option>
+	<option value="No Warranty">No Warranty</option></select>
+	<br>
+	Deductible: <input type="float" name ="Deduct" ><br>
+	Duration: <input type="string" name ="Durat" ><br>
+	Total Cost: <input type="float" name ="TotalC" ><br>
+	Monthly Cost: <input type="float" name ="MonthC" ><br>
+
+	<br><br>
+	<h3>Employee Information:</h3>
+	<br>
+
+<?php
+	$sql = "SELECT EmpID FROM employee";
+	$results = mysqli_query($conn, $sql);
+
+	echo "Employee ID: <select name='EmpID' onchange= \"showEmployeeInfo(this.value)\" required>";
+	echo "<option value=''>Select Employee</option>";
+
+	while($row = $results->fetch_assoc())
+	{
+		echo "<option value=" .$row['EmpID'] . ">" . $row ['EmpID'] . "</option>";
+	}
+	echo "</select>";
+	?>
+
+	<br>
+	Commission Percentage: <input type="number" name ="Commis" ><br>
+	<br>
+
 <br>
 <input type="submit" name="sellCar_submit">
 </form>
