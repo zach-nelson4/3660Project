@@ -21,7 +21,7 @@
 
 	$retval = mysqli_query($conn, $sql);
 	
-	$url = "http://localhost/3660Project/Index.html";
+	$url = "http://localhost/3660Project/EmpHistory.html";
 	if($retval){
 		header("Location: $url");
 	exit;
