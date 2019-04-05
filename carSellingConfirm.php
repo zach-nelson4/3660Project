@@ -19,12 +19,6 @@
 	$date = mysqli_real_escape_string($conn, $_POST['dateSold']);
 	$commis = mysqli_real_escape_string($conn, $_POST['Commis']);
 	$empID = mysqli_real_escape_string($conn, $_POST['EmpID']);
-	$warranty = mysqli_real_escape_string($conn, $_POST['Warranty']);
-	$deduct = mysqli_real_escape_string($conn, $_POST['Deduct']);
-	$durat = mysqli_real_escape_string($conn, $_POST['Durat']);
-	$totalC = mysqli_real_escape_string($conn, $_POST['TotalC']);
-	$monthC = mysqli_real_escape_string($conn, $_POST['MonthC']);
-	
 	}
 
 echo "<h2>Confirm Sale:</h2>";
@@ -43,11 +37,6 @@ echo "<br>";
 echo "Selling Price: " . $sellP . "<br>";
 echo "Down Payment: " . $downP . "<br>";
 echo "Interest Rate: " . $IntR . "<br><br>";
-echo "Warranty: " . $warranty . "<br>";
-echo "Deductible: " . $deduct . "<br>";
-echo "Duration: " . $durat . "<br>";
-echo "Total Cost: " . $totalC . "<br>";
-echo "Monthly Cost " . $monthC . "<br>";
 
 echo "<br>";
 echo "Employee ID of Salesperson:" . $empID ."<br>";
@@ -65,11 +54,6 @@ mysqli_close($conn);
 <input type="hidden" name="holdInt" value="<?php echo "$IntR"?>">
 <input type="hidden" name="Commis" value="<?php echo "$commis"?>">
 <input type="hidden" name="empID" value="<?php echo "$empID"?>">
-<input type="hidden" name="warranty" value="<?php echo "$warranty"?>">
-<input type="hidden" name="Deduct" value="<?php echo "$deduct"?>">
-<input type="hidden" name="Durat" value="<?php echo "$durat"?>">
-<input type="hidden" name="TotalC" value="<?php echo "$totalC"?>">
-<input type="hidden" name="MonthC" value="<?php echo "$monthC"?>">
 
 <input type="submit" value="Confirm" name="sellCar_Confirm">
 </form>

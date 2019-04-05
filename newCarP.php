@@ -7,7 +7,7 @@
         $model = $edition = $interior_colour = $exterior_colour = $VIN = "";
         $year = 0;
 
-        $purchPrice = 0.0;
+        $purchPrice = $MSRP= 0;
         $ExpMile = 0;
 
         $model = mysqli_real_escape_string($conn, $_POST['ModName']);
@@ -22,11 +22,12 @@
 
         $retval = mysqli_query($conn, $sql);
 
-        $MSRP = mysqli_real_escape_string($conn, $_POST['purchPrice']);
+        $MSRP = mysqli_real_escape_string($conn, $_POST['msrp']);
+        $purchPrice = mysqli_real_escape_string($conn, $_POST['purchP']);
         $ExpMile = mysqli_real_escape_string($conn, $_POST['ExpMiles']);
         $date = mysqli_real_escape_string($conn, $_POST['date']);
 
-        $sql1= "INSERT INTO newcarpurchase VALUES(NULL, (select max(carID) from cars), '$MSRP', '$ExpMile', '$date')";
+        $sql1= "INSERT INTO newcarpurchase VALUES(NULL, (select max(carID) from cars), '$MSRP', '$purchPrice', '$ExpMile', '$date')";
 
         $retval1 = mysqli_query($conn, $sql1);
 

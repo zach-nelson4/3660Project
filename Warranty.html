@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>
+            Warranty
+        </title>
+        <link rel="stylesheet" href="css/main-style.css">
+    </head>
+
+    <body>
+        <center> <h2> Warranty </h2></center> <br>
+        
+        <table id = "tables">
+            <tr>
+                <th>Warranty ID</th>
+                <th>Warranty Type</th>
+                <th>Deductible</th>
+                <th>Duration</th>
+                <th>Total Cost</th>
+                <th>Monthly Cost</th>
+            </tr>
+
+    <form action=warranty.php method=post style="overflow-x:auto;">
+        <tr>
+            <td>1</td>
+            <td><select name='Warranty1' onchange = \"showWarrantyInfo(this.value)\ recquired>";
+                <option value=""></option>
+                <option value="Drive-Train">Drive-Train</option>
+                <option value="Exterior">Exterior</option></select>
+                <br></td>
+            <td><input type="float" name ="Deduct1" ></td>
+            <td><input type="string" name ="Durat1"></td>
+            <td><input type="float" name ="TotalC1"></td>
+            <td><input type="float" name ="MonthC1"></td>
+        </tr>
+         
+        <tr>
+            <td>2</td>
+            <td><select name='Warranty2' onchange = \"showWarrantyInfo(this.value)\ recquired>";
+                <option value=""></option>
+                <option value="Drive-Train">Drive-Train</option>
+                <option value="Exterior">Exterior</option></select>
+                <br></td>
+            <td><input type="float" name ="Deduct2" ></td>
+            <td><input type="string" name ="Durat2"></td>
+            <td><input type="float" name ="TotalC2"></td>
+            <td><input type="float" name ="MonthC2"></td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td><select name='Warranty3' onchange = \"showWarrantyInfo(this.value)\ recquired>";
+                <option value=""></option>
+                <option value="Drive-Train">Drive-Train</option>
+                <option value="Exterior">Exterior</option></select>
+                <br></td>
+            <td><input type="float" name ="Deduct3" ></td>
+            <td><input type="string" name ="Durat3"></td>
+            <td><input type="float" name ="TotalC3"></td>
+            <td><input type="float" name ="MonthC3"></td>
+        </tr>
+    </table>
+
+    <br><br>
+    <input type="submit" name="warranty_submit">
+    </form>
+    
+    </body>
+    </html>

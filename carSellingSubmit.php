@@ -19,12 +19,7 @@
 	$date = mysqli_real_escape_string($conn, $_POST['holdDate']);
 	$commis = mysqli_real_escape_string($conn, $_POST['Commis']);
 	$empID = mysqli_real_escape_string($conn, $_POST['empID']);
-	$warranty = mysqli_real_escape_string($conn, $_POST['warranty']);
-	$deduct = mysqli_real_escape_string($conn, $_POST['Deduct']);
-	$durat = mysqli_real_escape_string($conn, $_POST['Durat']);
-	$totalC = mysqli_real_escape_string($conn, $_POST['TotalC']);
-	$monthC = mysqli_real_escape_string($conn, $_POST['MonthC']);
-
+	
 	$sql = "INSERT INTO salestrans VALUES(NULL, '$carID', '$sellP', '$downP', ('$sellP'-'$downP'), '$IntR', '$date')";
 	$retval = mysqli_query($conn, $sql);
 
@@ -40,20 +35,7 @@
 		$salesID = $row['SalesTransID'];
 	}
 
-	echo $salesID;
-	echo $warranty;
-	echo $deduct;
-	echo $date;
-	echo $carID;
-	echo $durat;
-	echo $totalC;
-	echo $monthC;
-
-	$sql = "INSERT INTO warranty VALUES('$salesID','$warranty','$deduct','$date','$carID','$durat','$totalC','$monthC',NULL)";
-	echo $sql;
-	$retval = mysqli_query($conn, $sql);
-
-	$url = "http://localhost/3660Project/index.html";
+	$url = "http://localhost/3660Project/Warranty.html";
 	if($retval){
 		header("Location: $url");
 	exit;

@@ -18,8 +18,7 @@
                    '$employer', '$title', '$supervisor', '$phoneNum', '$address', '$date', NULL)";
            $retval = mysqli_query($conn, $sql);
        }
-       echo $sql;
-
+       
        $employer = $title = $supervisor = $phoneNum = $address = "";
        
        $employer = mysqli_real_escape_string($conn, $_POST['employer2']);

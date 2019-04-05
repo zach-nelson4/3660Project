@@ -1,4 +1,3 @@
-/*
 create table cars
 (
     CarID int not null auto_increment,
@@ -11,7 +10,6 @@ create table cars
     VIN varchar(17),
     primary key (CarID)
 );
-
 
 create table customer
 (
@@ -28,7 +26,6 @@ create table customer
 	primary key (custID)
 );
 
-
 create table oldcarpurchase
 (
 	OldCarPurchID int not null auto_increment,
@@ -38,7 +35,7 @@ create table oldcarpurchase
 	MilesUsed int,
 	Seller_or_DealerName varchar(20),
 	Locations varchar(20),
-	PurchaseDate, date,
+	PurchaseDate date,
 	primary key (OldCarPurchID),
 	foreign key (CarID) REFERENCES cars(CarID)
 );
@@ -48,8 +45,9 @@ create table newcarpurchase
 	NewCarPurchID int not null auto_increment,
 	CarID int,
 	MSRP float(2),
+	purchP float(2),
 	ExpMiles int,
-	PurchaseDate, date,
+	PurchaseDate date,
 	primary key (NewCarPurchID),
 	foreign key (CarID) REFERENCES cars(CarID)
 );
@@ -88,7 +86,6 @@ create table employee
 	primary key (EmpID)
 );
 
-
 create table warranty
 (
 	SalesTransID int,
@@ -107,9 +104,9 @@ create table warranty
 create table employerhist 
 (
 	CustID int,
-	EmployerName varchar(20),
-	Title varchar(10),
-	Supervisor varchar(20),
+	EmployerName varchar(50),
+	Title varchar(50),
+	Supervisor varchar(50),
 	Phone char(14),
 	Business_Address varchar(50),
 	StartDate date,
@@ -117,7 +114,7 @@ create table employerhist
 	primary key (EmpHistID),
 	foreign key (CustID) REFERENCES customer(CustID)
 );
-*/
+
 create table payment
 (
 	SalesTransID int,

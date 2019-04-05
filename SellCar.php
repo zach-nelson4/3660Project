@@ -17,7 +17,7 @@
 
 
 <form action="carSellingConfirm.php" method="post" style="overflow-x:auto;">
-Date Sold: <input type="date" name ="dateSold" ><br>
+Date Sold: <input type="date" name ="dateSold" required><br>
 
 <?php
 	$sql = "SELECT CarID
@@ -34,21 +34,11 @@ Date Sold: <input type="date" name ="dateSold" ><br>
 	?>
 
 	<br><br>
-	Selling Price: <input type="number" name ="SellingP" ><br>
-	Down Payment: <input type="number" name ="DownP"><br>
-	Interest Rate: <input type="number" name="IntRate"><br><br>
-	<h3>Warranty Information:</h3>
-	Warranty Chosen <select name='Warranty' onchange = \"showWarrantyInfo(this.value)\ recquired>";
-	<option value="Exterior">Exterior</option>
-	<option value="Drive-Train">Drive-Train</option>
-	<option value="No Warranty">No Warranty</option></select>
-	<br>
-	Deductible: <input type="float" name ="Deduct" ><br>
-	Duration: <input type="string" name ="Durat" ><br>
-	Total Cost: <input type="float" name ="TotalC" ><br>
-	Monthly Cost: <input type="float" name ="MonthC" ><br>
+	Selling Price: <input type="number" name ="SellingP" step = 0.01 required><br>
+	Down Payment: <input type="number" name ="DownP"  step = 0.01 required><br>
+	Interest Rate: <input type="number" name="IntRate" step = 0.01 required><br><br>
 
-	<br><br>
+
 	<h3>Employee Information:</h3>
 	<br>
 
@@ -67,7 +57,7 @@ Date Sold: <input type="date" name ="dateSold" ><br>
 	?>
 
 	<br>
-	Commission Percentage: <input type="number" name ="Commis" ><br>
+	Commission Percentage: <input type="number" name ="Commis" required><br>
 	<br>
 
 <br>

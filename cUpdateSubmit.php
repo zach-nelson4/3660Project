@@ -18,8 +18,8 @@
 	$phone = mysqli_real_escape_string($conn, $_POST['phone']);
 
     
-    	$sql = "UPDATE employee 
-            SET fName = '$first_name' lName = '$last_name' streetName = '$address' city = '$city' province = '$province' postCode = '$postalCode' phone = '$phone' DOB = '$Dob' gender = '$gender'  WHERE (CustID = '$custID')";
+    	$sql = "UPDATE customer 
+            SET fName = '$first_name', lName = '$last_name', streetName = '$address', city = '$city', province = '$province', postCode = '$postalCode', phone = '$phone', DOB = '$Dob', gender = '$gender'  WHERE (CustID = '$custID')";
 	$retval = mysqli_query($conn, $sql);
 
 $url = "http://localhost/3660Project/index.html";
