@@ -41,14 +41,17 @@
             while($row = mysqli_fetch_assoc($result))
             {
                 $i = 0;
+                $empIDtoEdit[$i] = ($row['EmpID']);
                 echo "<form method='post' action='UpdateEmployee.php'>";
-                echo "<input type='hidden' name='carID' value=$empIDtoEdit[$i]>";
+                echo "<input type='hidden' name='EmpID' value=$empIDtoEdit[$i]>";
                 echo "<tr>"."<td>" . $row["EmpID"]. "</td>". 
                 "<td>" . $row["fName"] . "</td>" . 
                 "<td>" . $row["lName"] . "</td>" . 
                 "<td>" . $row["Phone"] . "</td>" . 
-                "<td>" . $row["Commission"] . "</td" . 
+                "<td>" . $row["Commission"] . "</td>" . 
+                "<td>" . "<input type='submit' value='Edit' name='editEmp_submit'>" . "</form>" . "</td>" . 
                 "</tr>";
+                $i = ($i+1);
             }
         } else {
             echo "0 Results";

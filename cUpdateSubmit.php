@@ -4,22 +4,11 @@
         <link rel="stylesheet" href="css/main-style.css">
     </head>
 
-   <body>
+    <body>
     <center><h2>Update Customer Information</h2></center>
     <br><br>
     Please enter the new information: 
     <br><br>
-    <?php
-	include 'connectdb.php';
-    $conn = connect_sql();
-    
-	if (isset($_POST['editCust_submit']))
-	{
-    $custID = 0;
-	$custID = mysqli_real_escape_string($conn, $_POST['CustID']);
-    }
-
-	echo "Customer ID: " . $custID; ?>
     <form action="updateCustomer.php" method="post" style="overflow-x:auto;">
         First Name: <input type="string" name="fName" required ><br><br>
         Last Name: <input type="string" name="lName" required ><br><br>
@@ -30,7 +19,7 @@
         Province: <input type="string" name="province" ><br><br>
         Postal Code: <input type="string" name="postCode" required><br><br>
         Phone Number: <input type="string" name="phone" required ><br><br>
-	<input type='hidden' name='CustID' value= $CustID>
+
         <br><br>
         <input type="submit" name="update_cust_submit">
         </form>
@@ -39,8 +28,4 @@
         <input type="button" value="Return Home" onclick="window.location.href='Index.html'" />
 
     </body>
-</html>
-
-
-
 </html>
