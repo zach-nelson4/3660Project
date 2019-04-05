@@ -32,6 +32,9 @@
 	$first_name = mysqli_real_escape_string($conn, $_POST['fn']);
 	$last_name = mysqli_real_escape_string($conn, $_POST['ln']);
 
+	$custIDtoEdit = [];
+	$i = 0;
+
 	$sql = "SELECT * FROM customer WHERE((CustID = '$cust_id') OR (fName = '$first_name')
 			OR (lName = '$last_name'))";	
 			
@@ -43,6 +46,9 @@
 	if( mysqli_num_rows($result) > 0){
 		while($row = mysqli_fetch_assoc($result))
 		{
+			$custIDtoEdit.push($row['CustID']);
+			echo "<form method='post' action='UpdateCustomer.php'>";
+			echo "<input type='hidden' name='carID' value= $custIDtoEdit[i]";
 			echo "<tr>"."<td>" . $row["CustID"] . "</td>" .
 			"<td>" . $row["fName"] . "</td>" .
 			"<td>" . $row["lName"] . "</td>" .		
@@ -51,7 +57,11 @@
 			"<td>" . $row["province"] . "</td>" .
 			"<td>" . $row["postCode"] . "</td>" .
 			"<td>" . $row["phone"] . "</td>" .
+			"<td>  <input type='submit' value='Edit' name='editCust_submit'>
+</form> </td>";
 			"</tr>";
+			$i = ($i+1);
+			
 		}
 	 } else {
 			echo "0 Results";
