@@ -17,6 +17,7 @@
 		<th>Province</th>
 		<th>Postal Code</th>
 		<th>Phone Number</th>
+		<th>Update Information</th>
 	</tr>
 
 <?php
@@ -48,7 +49,7 @@
 		{
 			$i = 0;
 			$custIDtoEdit[$i] = ($row['CustID']);
-			echo "<form method='post' action='UpdateCustomer.html'>";
+			echo "<form method='post' action='UpdateCustomer.php'>";
 			echo "<input type='hidden' name='carID' value= $custIDtoEdit[$i]>";
 			echo "<tr>"."<td>" . $row["CustID"] . "</td>" .
 			"<td>" . $row["fName"] . "</td>" .

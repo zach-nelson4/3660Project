@@ -14,6 +14,7 @@
                 <th> Last Name </th>
                 <th> Phone Number </th>
                 <th> Commission </th>
+                <th> Update Information</th>
             </tr>
 <?php
     include 'connectdb.php';
@@ -39,6 +40,9 @@
         if(mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result))
             {
+                $i = 0;
+                echo "<form method='post' action='UpdateEmployee.php'>";
+                echo "<input type='hidden' name='carID' value=$empIDtoEdit[$i]>";
                 echo "<tr>"."<td>" . $row["EmpID"]. "</td>". 
                 "<td>" . $row["fName"] . "</td>" . 
                 "<td>" . $row["lName"] . "</td>" . 
