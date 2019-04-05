@@ -1,4 +1,4 @@
-
+/*
 create table cars
 (
     CarID int not null auto_increment,
@@ -115,7 +115,7 @@ create table employerhist
 	primary key (EmpHistID),
 	foreign key (CustID) REFERENCES customer(CustID)
 );
-
+*/
 create table payment
 (
 	SalesTransID int,

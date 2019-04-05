@@ -28,20 +28,22 @@
 		$avgDaysLate = 0;
 	}
 
-	$sql = "SELECT COUNT(CustID) AS payNum FROM payment WHERE (CustID = '$custID')";
-	$retval = mysqli_query($conn, $sql);
-	while($row = $retval->fetch_assoc()){
-		$payNum = $row['payNum'];
+	$sql1 = "SELECT COUNT(CustID) AS payNum FROM payment WHERE (CustID = '$custID')";
+	$retval1 = mysqli_query($conn, $sql1);
+	while($row = $retval1->fetch_assoc()){
+		$payNum = ($row['payNum'] + 1);
 	}
 
-	$sql = "INSERT INTO payment VALUES('$salesTrans', '$custID', '$payNum', '$amount', '$date', '$dueDate', '$daysLate', '$avgDaysLate', '$bankAcct', '$cosigner', NULL)";
-	$retval = mysqli_query($conn, $sql);
+	$sql2 = "INSERT INTO payment VALUES('$salesTrans', '$custID', '$payNum', '$amount', '$date', '$dueDate', '$daysLate', '$avgDaysLate', '$bankAcct', '$cosigner', NULL)";
+	$retval2 = mysqli_query($conn, $sql2);
 
-	$sql = "UPDATE salestrans SET FinancedAmt = FinancedAmt - '$amount' WHERE SalesTransID = '$salesTrans'";
-	$retval = mysqli_query($conn, $sql);
+	echo $sql2;
+
+	$sql3 = "UPDATE salestrans SET FinancedAmt = FinancedAmt - '$amount' WHERE SalesTransID = '$salesTrans'";
+	$retval3 = mysqli_query($conn, $sql3);
 	
 	$url = "http://localhost/3660Project/Index.html";
-	if($retval){
+	if($retval2){
 		header("Location: $url");
 	exit;
 	} else {
