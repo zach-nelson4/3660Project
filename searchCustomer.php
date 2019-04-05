@@ -46,9 +46,10 @@
 	if( mysqli_num_rows($result) > 0){
 		while($row = mysqli_fetch_assoc($result))
 		{
-			$custIDtoEdit.push($row['CustID']);
-			echo "<form method='post' action='UpdateCustomer.php'>";
-			echo "<input type='hidden' name='carID' value= $custIDtoEdit[i]";
+			$i = 0;
+			$custIDtoEdit[$i] = ($row['CustID']);
+			echo "<form method='post' action='UpdateCustomer.html'>";
+			echo "<input type='hidden' name='carID' value= $custIDtoEdit[$i]>";
 			echo "<tr>"."<td>" . $row["CustID"] . "</td>" .
 			"<td>" . $row["fName"] . "</td>" .
 			"<td>" . $row["lName"] . "</td>" .		
@@ -57,8 +58,7 @@
 			"<td>" . $row["province"] . "</td>" .
 			"<td>" . $row["postCode"] . "</td>" .
 			"<td>" . $row["phone"] . "</td>" .
-			"<td>  <input type='submit' value='Edit' name='editCust_submit'>
-</form> </td>";
+			"<td>" . "<input type='submit' value='Edit' name='editCust_submit'>" . "</form>" . "</td>" .
 			"</tr>";
 			$i = ($i+1);
 			
