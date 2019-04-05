@@ -16,6 +16,7 @@
         $exterior_colour = mysqli_real_escape_string($conn, $_POST['ExtCol']);
         $VIN = mysqli_real_escape_string($conn, $_POST['VIN']);
         $year = mysqli_real_escape_string($conn, $_POST['Year']);
+        $date = mysqli_real_escape_string($conn, $_POST['date']);
         
         $sql = "INSERT INTO cars  VALUES(NULL, 'NEW', '$model', '$edition', '$year', '$interior_colour', '$exterior_colour', '$VIN')";
 
@@ -23,8 +24,9 @@
 
         $MSRP = mysqli_real_escape_string($conn, $_POST['purchPrice']);
         $ExpMile = mysqli_real_escape_string($conn, $_POST['ExpMiles']);
+        $date = mysqli_real_escape_string($conn, $_POST['date']);
 
-        $sql1= "INSERT INTO newcarpurchase VALUES(NULL, (select max(carID) from cars), '$MSRP', '$ExpMile')";
+        $sql1= "INSERT INTO newcarpurchase VALUES(NULL, (select max(carID) from cars), '$MSRP', '$ExpMile', '$date')";
 
         $retval1 = mysqli_query($conn, $sql1);
 

@@ -38,6 +38,7 @@ create table oldcarpurchase
 	MilesUsed int,
 	Seller_or_DealerName varchar(20),
 	Locations varchar(20),
+	PurchaseDate, date,
 	primary key (OldCarPurchID),
 	foreign key (CarID) REFERENCES cars(CarID)
 );
@@ -46,8 +47,9 @@ create table newcarpurchase
 (
 	NewCarPurchID int not null auto_increment,
 	CarID int,
-	PurchP float(2),
+	MSRP float(2),
 	ExpMiles int,
+	PurchaseDate, date,
 	primary key (NewCarPurchID),
 	foreign key (CarID) REFERENCES cars(CarID)
 );

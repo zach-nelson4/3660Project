@@ -27,8 +27,9 @@
         $mileage = mysqli_real_escape_string($conn, $_POST['mileage']);
         $SellerName = mysqli_real_escape_string($conn, $_POST['sellerName']);
         $location = mysqli_real_escape_string($conn, $_POST['location']);
+        $date = mysqli_real_escape_string($conn, $_POST['date']);
 
-        $sql1 = "INSERT INTO oldcarpurchase VALUES(NULL, (select max(carID) from cars), '$BookPrice', '$PricePaid', '$mileage', '$SellerName', '$location')";
+        $sql1 = "INSERT INTO oldcarpurchase VALUES(NULL, (select max(carID) from cars), '$BookPrice', '$PricePaid', '$mileage', '$SellerName', '$location', '$date')";
 
         $retval1 = mysqli_query($conn, $sql1);
 
