@@ -1,31 +1,40 @@
-<html>
-    <head>
-        <title> Update Customer Information </title>
-        <link rel="stylesheet" href="css/main-style.css">
-    </head>
+<?php
+    include 'connectdb.php';
+    $conn = connect_sql();
+    if (isset($_POST['update_cust_submit']))
+    {
+    $first_name = $last_name = $Dob = $gender = $address = $city = $province = $postalCode = $phone = "";
+	$custID = 0;
 
-    <body>
-    <center><h2>Update Customer Information</h2></center>
-    <br><br>
-    Please enter the new information: 
-    <br><br>
-    <form action="updateCustomer.php" method="post" style="overflow-x:auto;">
-        First Name: <input type="string" name="fName" required ><br><br>
-        Last Name: <input type="string" name="lName" required ><br><br>
-        Date of birth: <input type="string" name="dob" required><br><br>
-        Gender: <input type ="string" name = "gender" maxlength = "1"> <br><br>
-        Address: <input type="string" name="streetName" ><br><br>
-        City: <input type="string" name="city" ><br><br>
-        Province: <input type="string" name="province" ><br><br>
-        Postal Code: <input type="string" name="postCode" required><br><br>
-        Phone Number: <input type="string" name="phone" required ><br><br>
+	$custID = mysqli_real_escape_string($conn, $_POST['custID']);
+	$first_name = mysqli_real_escape_string($conn, $_POST['fName']);
+	$last_name = mysqli_real_escape_string($conn, $_POST['lName']);
+	$Dob = mysqli_real_escape_string($conn, $_POST['dob']);
+	$gender = mysqli_real_escape_string($conn, $_POST['gender']);
+	$address = mysqli_real_escape_string($conn, $_POST['streetName']);
+	$city = mysqli_real_escape_string($conn, $_POST['city']);
+	$province = mysqli_real_escape_string($conn, $_POST['province']);
+	$postalCode = mysqli_real_escape_string($conn, $_POST['postCode']);
+	$phone = mysqli_real_escape_string($conn, $_POST['phone']);
 
-        <br><br>
-        <input type="submit" name="update_cust_submit">
-        </form>
+    
+    	$sql = "UPDATE employee 
+            SET fName = '$first_name' lName = '$last_name' streetName = '$address' city = '$city' province = '$province' postCode = '$postalCode' phone = '$phone' DOB = '$Dob' gender = '$gender'  WHERE (CustID = '$custID')";
+	$retval = mysqli_query($conn, $sql);
 
-        <br><br>
-        <input type="button" value="Return Home" onclick="window.location.href='Index.html'" />
-
-    </body>
-</html>
+$url = "http://localhost/3660Project/index.html";
+	if($retval){
+		header("Location: $url");
+	exit;
+	} else {
+		echo "Error.";
+		die();
+	}
+	
+	mysqli_close($conn);
+}
+	
+?>
+	
+   
+>>>>>>> 9092e5993983e4fb16a16580b9ea2c4180c20d3a
