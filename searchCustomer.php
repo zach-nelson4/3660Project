@@ -50,7 +50,7 @@
 			$i = 0;
 			$custIDtoEdit[$i] = ($row['CustID']);
 			echo "<form method='post' action='UpdateCustomer.php'>";
-			echo "<input type='hidden' name='carID' value= $custIDtoEdit[$i]>";
+			echo "<input type='hidden' name='CustID' value= $custIDtoEdit[$i]>";
 			echo "<tr>"."<td>" . $row["CustID"] . "</td>" .
 			"<td>" . $row["fName"] . "</td>" .
 			"<td>" . $row["lName"] . "</td>" .		
